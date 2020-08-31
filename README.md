@@ -3,13 +3,14 @@ A language I built for fun and to learn things.
 It is easily extensible as each piece of the language(i.e. lexer, parser etc.) is completely self contained and built to communicate with the next piece by text stream via unix pipe.
 This means that building something like a semantic analyzer is as simple as writing a program that takes in an ast as a text stream, checking the semantics of the ast, and then printing the ast to stdout.
 
-# Inspirations
-+ The parser is based on the paper "Top Down Operator Precedence" by Vaughan R. Pratt. Go read it [here](https://tdop.github.io/), it makes parsing almost trivial.
-+ The book "Writing An Interpreter In Go" by Thorsten Ball pushed me to start this project when I read the first few pages and then realized I kind of knew where he was going with it.
-
 # Requirements
 + POSIX shell
 + Go language compiler
+
+# Install and Run
+1. Clone this repo
+2. Run `make` inside the cloned directory
+3. To run a file do `./run.sh <name of file>`, so to run the test.src file do `./run.sh test.src`
 
 # Example
 The following prints "Hello, World!", an approximation of pi, then counts down from ten.
@@ -36,3 +37,7 @@ The following are the features I plan to add in order of importance.
 + A better way to handle types so I can add more builtin types and user types easily.
 + Better syntax for things? All syntax is subject to change. 
 + LLVM frontend for compilation, jit etc.
+
+# Inspirations
++ The parser is based on the paper "Top Down Operator Precedence" by Vaughan R. Pratt. Go read it [here](https://tdop.github.io/), it makes parsing almost trivial.
++ The book "Writing An Interpreter In Go" by Thorsten Ball pushed me to start this project when I read the first few pages and then realized I kind of knew where he was going with it.
