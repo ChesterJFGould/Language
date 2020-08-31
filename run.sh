@@ -1,3 +1,3 @@
 #! /bin/sh
 
-lexer/lexer $1 | parser/parser | interpreter/interpreter
+sed 's/\/\/.*$//g' $1 | lexer/lexer | parser/parser | interpreter/interpreter
