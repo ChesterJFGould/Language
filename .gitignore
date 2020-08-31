@@ -3,6 +3,7 @@
 
 !.gitignore
 !LICENSE
+!Makefile
 !*.md
 !*.go
 !*.src
