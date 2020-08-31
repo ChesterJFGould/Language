@@ -33,5 +33,6 @@ Due to time constraints on getting a minimal viable product working I chose to o
 The following are the features I plan to add in order of importance.
 + Non-builtin functions and arrays.
 + First class functions.
++ A better way to handle types so I can add more builtin types and user types easily.
 + Better syntax for things? All syntax is subject to change. 
 + LLVM frontend for compilation, jit etc.
