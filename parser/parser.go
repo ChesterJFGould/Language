@@ -73,6 +73,7 @@ func newParser(t []tokens.Token) *parser {
 	p.prefixParsers[tokens.IntLiteral] = p.parseIntLiteral
 	p.prefixParsers[tokens.FloatLiteral] = p.parseFloatLiteral
 	p.prefixParsers[tokens.StringLiteral] = p.parseStringLiteral
+	p.prefixParsers[tokens.BoolLiteral] = p.parserBoolLiteral
 	p.prefixParsers[tokens.Identifier] = p.parseIdentifier
 	p.prefixParsers[tokens.Increment] = p.parsePrefixOperator
 	p.prefixParsers[tokens.Decrement] = p.parsePrefixOperator
@@ -319,28 +320,29 @@ func (p *parser) parseStringLiteral() nodes.Expression {
 	}
 }
 
-func (p *parser) parseIdentifier() nodes.Expression {
+func (p *parser) parserBoolLiteral() nodes.Expression {
 	defer p.nextToken()
 
-	// HACK
 	if p.currentToken().Literal == "true" {
 		return &nodes.BoolLiteral {
 			Value: true,
 			Location: p.currentToken().Location,
 		}
-	} else if p.currentToken().Literal == "false" {
+	} else {
 		return &nodes.BoolLiteral {
 			Value: false,
 			Location: p.currentToken().Location,
 		}
-	} else {
-		return &nodes.Identifier {
-			Name: p.currentToken().Literal,
-			Location: p.currentToken().Location,
-		}
 	}
+}
 
+func (p *parser) parseIdentifier() nodes.Expression {
+	defer p.nextToken()
 
+	return &nodes.Identifier {
+		Name: p.currentToken().Literal,
+		Location: p.currentToken().Location,
+	}
 }
 
 func (p *parser) parsePrefixOperator() nodes.Expression {

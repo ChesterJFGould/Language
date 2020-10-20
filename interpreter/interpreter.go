@@ -61,6 +61,8 @@ func (i *interpreter) interpretExpression(e nodes.Expression) nodes.Expression {
 		return e
 	case *nodes.StringLiteral:
 		return e
+	case *nodes.BoolLiteral:
+		return e
 	case *nodes.Identifier:
 		val, exists := i.retrieveSymbol(e.Name)
 		if exists {

@@ -1,5 +1,5 @@
 {
-        println("Hello,"+" World!") // A comment
+        println("Hello,"+" World!")
       	
         var pi = 1.0
       
@@ -10,4 +10,6 @@
         println("pi is almost "+string(pi*4.0))
         
         for var i = 10; i > 0; var i = i - 1 println(string(i))
+	
+	if false println("It's true!") else println("It's false")
 }

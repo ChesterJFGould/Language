@@ -130,7 +130,7 @@ func IfFromScanner(s *bufio.Scanner) (Statement, error) {
 		return nil, err
 	}
 
-	if vals[3] == "2" {
+	if vals[2] == "2" {
 		return i, nil
 	}
 
@@ -459,6 +459,7 @@ func init() {
 	expressionScannerParsers["IntLiteral"] = IntLiteralFromScanner
 	expressionScannerParsers["FloatLiteral"] = FloatLiteralFromScanner
 	expressionScannerParsers["StringLiteral"] = StringLiteralFromScanner
+	expressionScannerParsers["BoolLiteral"] = BoolLiteralFromScanner
 	expressionScannerParsers["Identifier"] = IdentifierFromScanner
 	expressionScannerParsers["Call"] = CallFromScanner
 	expressionScannerParsers["Index"] = IndexFromScanner
@@ -660,7 +661,7 @@ func BoolLiteralFromScanner(s *bufio.Scanner) (Expression, error) {
 		return nil, fmt.Errorf("Failed to parse %q into BoolLiteral", s.Text())
 	}
 
-	loc, err := location.LocationFromString(strings.Join(vals[4:], " "))
+	loc, err := location.LocationFromString(strings.Join(vals[3:], " "))
 	if err != nil {
 		return nil, err
 	}

@@ -11,6 +11,7 @@ var tokenTypeToString map[TokenType] string = map[TokenType] string {
 	IntLiteral: "IntLiteral",
 	FloatLiteral: "FloatLiteral",
 	StringLiteral: "StringLiteral",
+	BoolLiteral: "BooleanLiteral",
 	Add: "Add",
 	Increment: "Increment",
 	Subtract: "Subtract",
@@ -56,6 +57,7 @@ const (
 	IntLiteral TokenType = iota + 1
 	FloatLiteral
 	StringLiteral
+	BoolLiteral
 	Add
 	Increment
 	Subtract
